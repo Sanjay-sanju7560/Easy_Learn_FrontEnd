@@ -1,0 +1,22 @@
+*{
+  border: 0px;
+  margin: 0px;
+  box-sizing: border-box;
+  font-family: 'Times New Roman', Times, serif;
+}
+
+ul {
+  list-style-type: none;
+}
+#forInpCol{
+  margin-left:  20px; 
+  margin-bottom: 15px;
+}
+#forInpCol2{
+  width: 400px; 
+  height: 27px;
+  border-radius: 15px;
+  font-size: 15; 
+  margin-bottom: 8px;
+  margin: 5px;
+}
