@@ -36,7 +36,7 @@ function TecherLogin() {
         // setIsAutherised() ------------------------------------------------------------------------------------------------------------------X
         setUserData({email:"",password:""})
         setTimeout(() => {
-          navigate('/')
+          navigate('/allcourses')
           setLoginStatus(false)
         }, 2000);
       }

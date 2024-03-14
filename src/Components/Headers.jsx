@@ -18,11 +18,12 @@ function Headers() {
           <Nav className="me-auto">
             <Nav.Link href={'/'}>Home</Nav.Link>
             <NavDropdown title="All Category" id="basic-nav-dropdown">
-              <NavDropdown.Item href="#action/3.1">Web Design</NavDropdown.Item>
+              {/* <NavDropdown.Item href="#action/3.1">Web Design</NavDropdown.Item>
               <NavDropdown.Item href="#action/3.2">Graphic Design</NavDropdown.Item>
               <NavDropdown.Item href="#action/3.3">3D & Animation</NavDropdown.Item>
-              <NavDropdown.Divider />
+              <NavDropdown.Divider /> */}
               <NavDropdown.Item > <Link to={'/allcourses'}> All courses </Link> </NavDropdown.Item>
+              
             </NavDropdown>
             <Link to={'/login'} style={{ textDecoration: 'none' }} > <Button style={{ marginLeft: '450px', fontSize: '12px',borderRadius:'46%',paddingLeft:'15px',paddingRight:'15px',paddingBottom:'4px',paddingTop:'4px',border: '2px',backgroundColor:'#00ace6' }}>Login</Button></Link>
              <Link to={'/register'} style={{ textDecoration: 'none' }} ><Button style={{ marginLeft: '10px', fontSize: '12px', borderRadius: '46%', paddingLeft: '8px', paddingRight: '8px', paddingBottom: '4px', paddingTop: '4px', backgroundColor: "#ff944d" }}>Register</Button></Link>

@@ -26,32 +26,32 @@ import { getAllCourseAPI } from '../Services/allAPIs'
 
 function Home(course) {
 
-  const [allCourses,setAllCourses] = useState([])
+  const [allCourses, setAllCourses] = useState([])
   console.log(allCourses);
 
   const getAllCourses = async () => {
     const result = await getAllCourseAPI()
-    if(result.status===200){
+    if (result.status === 200) {
       setAllCourses(result.data)
-    }else{
+    } else {
       console.log(result);
     }
     console.log(allCourses);
   }
 
 
-  useEffect(() =>{ 
+  useEffect(() => {
     getAllCourses()
     // if(sessionStorage.getItem("token")){
     //   setIsLoggedIn(true)
     // }else{
     //   setIsLoggedIn(false)
     // }
-  },[])
+  }, [])
 
   return (
     <>
-      <Headers/>
+      <Headers />
       {/* CAROUSAL  */}
       <div>
         <Carousel data-bs-theme="dark">
@@ -72,125 +72,127 @@ function Home(course) {
       <div style={{ width: '100%', height: '' }}>
         <p className='fw-bolder ms-5 mt-3 fs-3'>Top Courses</p>
         {/* ====================================================================================================================================================================== */}
-        
-         <Row> 
-         
-          <Col xs={6} md={4}> 
-          {allCourses.length>0? allCourses.map((course,index)=>(
-         <div key={index}className='me-5'> 
-            <div>
-              <Card style={{ width: '20rem', margin: '25px' }}>
-                <Card.Img variant="top" src={cTemp} />
-                <Card.Body>
-                  <Card.Title> {course.name}</Card.Title>
-                  <Card.Text>
-                  {course.details}
-                  </Card.Text>
-                </Card.Body>
-                <ListGroup className="list-group-flush">
-                  <ListGroup.Item style={{ fontSize: '15px', padding: '5px', fontWeight: 'bolder' }}> {course.len} Min</ListGroup.Item>
-                  <ListGroup.Item style={{ fontSize: '10px', padding: '8px', margin: '' }}><span style={{ backgroundColor: '#4dd2ff', padding: '1px' }}> {course.category}</span></ListGroup.Item>
-                  <ListGroup.Item> <span style={{ fontWeight: 'bolder', fontSize: '15px' }}>
-                    <div class="d-flex justify-content-between">
-                      <Stack direction="row" spacing={2}>
-                        <Avatar alt="Remy Sharp" src={profileTemp} />
-                        <p style={{ marginLeft: '149px', marginTop: '5px' }}>Free </p>
-                      </Stack>
-                    </div>
-                  </span></ListGroup.Item>
-                </ListGroup>
-              </Card>
-            </div> 
-             </div> )): null}
-          </Col>
-       
-           {/* ====================================================================================================================================== */}
+
+        <Row>
+          {allCourses.length > 0 ? allCourses.map((course, index) => (
+            <div key={index} className='me-5'>
+              <Col xs={6} md={4}>
+
+                <div>
+                  <Card style={{ width: '20rem', margin: '25px' }}>
+                    <Card.Img variant="top" src={cTemp} />
+                    <Card.Body>
+                      <Card.Title className='fw-bold'> {course.name}</Card.Title>
+                      <Card.Text className='fs-6'>
+                        {course.details}
+                      </Card.Text>
+                    </Card.Body>
+                    <ListGroup className="list-group-flush">
+                      <ListGroup.Item style={{ fontSize: '10px', padding: '5px', fontWeight: 'bolder' }}> {course.len} Min</ListGroup.Item>
+                      <ListGroup.Item style={{ fontSize: '10px', padding: '8px', margin: '' }}><span style={{ backgroundColor: '#4dd2ff', padding: '1px' }}> {course.category}</span></ListGroup.Item>
+                      <ListGroup.Item> <span style={{ fontWeight: 'bolder', fontSize: '15px' }}>
+                        <div class="d-flex justify-content-between">
+                          <Stack direction="row" spacing={2}>
+                            <Avatar alt="Remy Sharp" src={profileTemp} />
+                            <p style={{ marginLeft: '149px', marginTop: '5px' }}>Free </p>
+                          </Stack>
+                        </div>
+                      </span></ListGroup.Item>
+                    </ListGroup>
+                  </Card>
+                </div>
+
+              </Col>
+            </div>
+          )) : null}
+
+          {/* ====================================================================================================================================== */}
         </Row>
-    </div>
-       
+      </div>
+
       {/* Top Categories */}
       <div style={{ width: '100%', height: '' }}>
         <p className='fw-bolder ms-5 mt-3 fs-3'>Top Categories</p>
         {/* ====================================================================================================================================================================== */}
         <Row>
-            <Col xs={6} md={4}>
-               <div>
-            <Card sx={{ maxWidth: 345 }} style={{marginBottom:'20px'}}>
-      <CardActionArea>
-        <CardMedia component="img" height="140" image={angularTemp}  alt="green iguana" />
-        <CardContent>
-          <Typography gutterBottom variant="h5" component="div">
-            Category Name
-          </Typography>
-          <Typography variant="body2" color="text.secondary">
-          Category details
-          </Typography>
-        </CardContent>
-      </CardActionArea>
-    </Card>
-               </div>
-            </Col>
+          <Col xs={6} md={4}>
+            <div>
+              <Card sx={{ maxWidth: 345 }} style={{ marginBottom: '20px' }}>
+                <CardActionArea>
+                  <CardMedia component="img" height="140" image={angularTemp} alt="green iguana" />
+                  <CardContent>
+                    <Typography gutterBottom variant="h5" component="div">
+                      Category Name
+                    </Typography>
+                    <Typography variant="body2" color="text.secondary">
+                      Category details
+                    </Typography>
+                  </CardContent>
+                </CardActionArea>
+              </Card>
+            </div>
+          </Col>
 
 
-            <Col xs={6} md={4}>
-               <div>
-            <Card sx={{ maxWidth: 345 }}>
-      <CardActionArea>
-        <CardMedia component="img" height="140" image={reactTemp} alt="green iguana" />
-        <CardContent>
-          <Typography gutterBottom variant="h5" component="div">
-            Category Name
-          </Typography>
-          <Typography variant="body2" color="text.secondary">
-          Category details
-          </Typography>
-        </CardContent>
-      </CardActionArea>
-    </Card>
-               </div>
-            </Col>
+          <Col xs={6} md={4}>
+            <div>
+              <Card sx={{ maxWidth: 345 }}>
+                <CardActionArea>
+                  <CardMedia component="img" height="140" image={reactTemp} alt="green iguana" />
+                  <CardContent>
+                    <Typography gutterBottom variant="h5" component="div">
+                      Category Name
+                    </Typography>
+                    <Typography variant="body2" color="text.secondary">
+                      Category details
+                    </Typography>
+                  </CardContent>
+                </CardActionArea>
+              </Card>
+            </div>
+          </Col>
 
 
-            <Col xs={6} md={4}>
-               <div>
-            <Card sx={{ maxWidth: 345 }}>
-      <CardActionArea>
-        <CardMedia component="img" height="140" image={nodeTemp} alt="green iguana"/>
-        <CardContent>
-          <Typography gutterBottom variant="h5" component="div">
-            Category Name
-          </Typography>
-          <Typography variant="body2" color="text.secondary">
-          Category details
-          </Typography>
-        </CardContent>
-      </CardActionArea>
-    </Card>
-               </div>
-            </Col>
+          <Col xs={6} md={4}>
+            <div>
+              <Card sx={{ maxWidth: 345 }}>
+                <CardActionArea>
+                  <CardMedia component="img" height="140" image={nodeTemp} alt="green iguana" />
+                  <CardContent>
+                    <Typography gutterBottom variant="h5" component="div">
+                      Category Name
+                    </Typography>
+                    <Typography variant="body2" color="text.secondary">
+                      Category details
+                    </Typography>
+                  </CardContent>
+                </CardActionArea>
+              </Card>
+            </div>
+          </Col>
         </Row>
       </div>
 
       <div>
-      <Container>
-      <Row>
-        <Col >
-        <Link style={{textDecoration:'none',color:'white'}} to={'/register'}>
-            <div className='d-flex justify-content-center text-align-center  m-3 mb-5' style={{height:'20vh',width:'90%',backgroundColor:'#ffad33' ,borderRadius:'20px',padding:'48px',fontSize:'25px',fontFamily:'cursive',textDecoration:'none'}}>
-             BECOME A STUDENT
-            </div>
-        </Link>
-        </Col>
+        <Container>
+          <Row>
+            <Col >
+              <Link style={{ textDecoration: 'none', color: 'white' }} to={'/register'}>
+                <div className='d-flex justify-content-center text-align-center  m-3 mb-5' style={{ height: '20vh', width: '90%', backgroundColor: '#ffad33', borderRadius: '20px', padding: '48px', fontSize: '25px', fontFamily: 'cursive', textDecoration: 'none' }}>
+                  BECOME A STUDENT
+                </div>
+              </Link>
+            </Col>
 
-        <Col>
-        <Link style={{textDecoration:'none',color:'white'}} to={'/teacher'}>
-        <div className='d-flex justify-content-center text-align-center border m-3 mb-5'  style={{height:'20vh',width:'90%',backgroundColor:'#ffad33',borderRadius:'20px',padding:'48px',fontSize:'25px',fontFamily:'cursive'}}>
-      BECOME A TUTOR
-</div>
-        </Link>
-        </Col>
-      </Row>
-    </Container>
+            <Col>
+              <Link style={{ textDecoration: 'none', color: 'white' }} to={'/teacher'}>
+                <div className='d-flex justify-content-center text-align-center border m-3 mb-5' style={{ height: '20vh', width: '90%', backgroundColor: '#ffad33', borderRadius: '20px', padding: '48px', fontSize: '25px', fontFamily: 'cursive' }}>
+                  BECOME A TUTOR
+                </div>
+              </Link>
+            </Col>
+          </Row>
+        </Container>
       </div>
 
       <Footer />

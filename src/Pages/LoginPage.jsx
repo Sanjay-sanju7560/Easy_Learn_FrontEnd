@@ -32,7 +32,6 @@ else{
       // sessionStorage.setItem("username",result.data.existingUser.username)
       // sessionStorage.setItem("token",result.data.token)
       // sessionStorage.setItem("userDetails",JSON.stringify(result.data.existingUser))
-      // setIsAutherised() ------------------------------------------------------------------------------------------------------------------X
       setUserData({email:"",password:""})
       setTimeout(() => {
         navigate('/')
