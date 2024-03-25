@@ -49,17 +49,17 @@ const handleRegister = async (e)=>{
           <Nav className="me-auto">
             <Nav.Link href={'/'}>Home</Nav.Link>
             <NavDropdown title="All Category" id="basic-nav-dropdown">
-              <NavDropdown.Item href="#action/3.1">Web Design</NavDropdown.Item>
+              {/* <NavDropdown.Item href="#action/3.1">Web Design</NavDropdown.Item>
               <NavDropdown.Item href="#action/3.2">Graphic Design </NavDropdown.Item>
               <NavDropdown.Item href="#action/3.3">3D & Animation</NavDropdown.Item>
-              <NavDropdown.Divider />
-              <NavDropdown.Item href="#action/3.4">All courses </NavDropdown.Item>
+              <NavDropdown.Divider /> */}
+              <NavDropdown.Item ><Link to={'/allcourses'}> All courses </Link>  </NavDropdown.Item>
             </NavDropdown>
           </Nav>
           <Nav.Link href="#home">
              <p style={{ marginLeft: '10px', fontSize: '10px', color: "black" }} >Already Registered?
              <Link to={'/login'} style={{ textDecoration: 'none', fontSize: '9px', fontWeight: 'bold' }}>LOGIN </Link> here </p>
-              <p style={{ marginLeft: '50px', marginTop: '-10px', fontSize: '10px', color: "black" }}> <Link to={'/teacher'} style={{textDecoration:'none'}}> Register as Teacher</Link></p>
+              {/* <p style={{ marginLeft: '50px', marginTop: '-10px', fontSize: '10px', color: "black" }}> <Link to={'/teacher'} style={{textDecoration:'none'}}> Register as Teacher</Link></p> */}
               </Nav.Link>
         </Navbar.Collapse>
 

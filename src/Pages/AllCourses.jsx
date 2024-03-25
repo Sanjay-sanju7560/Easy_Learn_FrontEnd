@@ -5,6 +5,8 @@ import { CardActionArea, CardContent, CardMedia, Fab, Typography } from '@mui/ma
 import { getAllCourseAPI } from '../Services/allAPIs';
 import AddIcon from '@mui/icons-material/Add';
 import ElLogos from '../assets/El-Logos.png'
+import './button.css'
+import { Link } from 'react-router-dom';
 
 function AllCourses() {
   const [allCourses, setAllCourses] = useState([]);
@@ -53,10 +55,13 @@ function AllCourses() {
           </Row>
         </div>
         
-      </div><div style={{ marginTop: '10%' }}>
-          <Fab style={{marginLeft:'89%'}} size="medium" color="secondary" aria-label="add" >
+      </div>
+      <div>
+           
+          <button className="bn-right-bottom"><Link to={'/upload'}>  <Fab className='bn-right-bottom' size="medium" color="secondary" aria-label="add" >
             <AddIcon />
           </Fab>
+          </Link> </button>
         </div>
     </>
   );

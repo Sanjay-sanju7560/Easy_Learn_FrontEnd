@@ -16,7 +16,7 @@ function AddCourse() {
 const handleCourseUpload = async (e)=>{
   e.preventDefault()
   console.log(uploadData);
-  const {name,category,details,len,link} = uploadData
+  const {name,category,details,len,link,img} = uploadData
   if(!name || !category || !details || !len || !link){
     toast.info('Please fill the form completly!!')
   }else{
@@ -25,7 +25,7 @@ const handleCourseUpload = async (e)=>{
       const result = await uploadAPI(uploadData)
       console.log(result)
       if(result.status == 200){
-        toast.success(`/* ${result.data.username} */ Course added successfully !!!`)
+        toast.success(`Course added successfully !!!`)
         setUploadData({name:"",category:"",details:"",len:"",link:""})
         setTimeout(() => {
           navigate('/allcourses')
@@ -44,8 +44,15 @@ const handleCourseUpload = async (e)=>{
   return (
     <>
     <Headers/>
-            <div width="60%" style={{ backgroundColor: '#f2f2f2', height: '430px',width:'500px', margin: '230px', marginTop: '30px', borderRadius: '10px' }}>
+    <div>
+
+    
+            <div width="60%" style={{ backgroundColor: '#f2f2f2', height: '430px',width:'800px', margin: '230px', marginTop: '30px', borderRadius: '10px' }}>
         <p style={{ margin: '20px', fontWeight: 'bold', fontSize: '18px' }} className='ms-5 '><br />Learn at the comfort of your own home</p>
+      <div className='row'>
+        <div className='col-lg-8 md-4'>
+
+        
         <Form action="POST" className='w-100' >
 
           <Form.Group id="forInpCol" className="mb-3" controlId="formBasicname"> Course Name  <br />
@@ -83,15 +90,21 @@ const handleCourseUpload = async (e)=>{
             onChange={e=>setUploadData({...courseData,courseTemp:e.target.files[0]})}
             style={{ margin:'2x',width:'80%' }}/>
           </Form.Group> */}
-
-          
           <Button className='btn btn-dark mb-2' style={{ border: '3px', background: '#80d4ff', margin: '20px', marginLeft: '35px', padding: '5px', fontSize: '15px', borderRadius: '15px' }} 
             onClick={handleCourseUpload}  >Add Course</Button>
-           
         </Form>
         <ToastContainer autoClose={2000} theme="colored" position="top-center"/>
-
-      </div> 
+        </div>
+        {/* <div className='col-lg-4'>
+        <Form.Group id="forInpCol" className="mb-3 m-5"> Image 
+            <Form.Control  type="file" placeholder="Image"
+             onChange={e=>setUploadData({...uploadData,img:e.target.value})} value={uploadData.img}
+            />
+          </Form.Group>
+        </div> */}
+      </div>
+       </div>
+    </div> 
      </>
   )
 }

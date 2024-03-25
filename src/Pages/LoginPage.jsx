@@ -33,6 +33,7 @@ else{
       // sessionStorage.setItem("token",result.data.token)
       // sessionStorage.setItem("userDetails",JSON.stringify(result.data.existingUser))
       setUserData({email:"",password:""})
+      toast.info('Loged in Successfuly!!')
       setTimeout(() => {
         navigate('/')
         setLoginStatus(false)
